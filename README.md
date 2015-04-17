@@ -58,9 +58,23 @@ $("p").test({
 });
 ```
 
+## Build from source
+
+To build the source into a distribution package and run the unit tests just once, run:
+
+```
+grunt
+```
+
+## Develop from source
+
+To continuously build and run unit tests everytime javascript is modified, run:
+
+```
+grunt watch
+```
 
 ## todo:
 
-* Add Grunt for src build and dist build..
-* Add ESLint.
+* Use QUnit to write several unit tests for the plugin.
 * Add HTML linting for the sample file.

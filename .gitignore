@@ -1,6 +1,6 @@
-# Sass
-.sass-cache
-*.css.map
+# Distribution package, built with Grunt
+dist
 
 # Dependencies
 bower_components
+node_modules
