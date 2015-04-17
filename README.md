@@ -8,6 +8,15 @@ The bower command will install both the plugin and its dependencies.
 install bower https://github.com/ebabel-eu/jquery-plugin.git --save
 ```
 
+You could use the plugin directly as you find it in the src folder. However, if you want to build its distribution package and unit test it, run:
+
+```
+cd bower_components/jquery-plugin
+bower install
+npm install
+grunt
+```
+
 ## Use jQuery test plugin
 
 ```
