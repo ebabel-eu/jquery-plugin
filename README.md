@@ -17,4 +17,5 @@ Example:
 $("p").test();
 ```
 
-See the src/index.html for sample usage in HTML.
+See the [sample usage](src/index.html) in HTML.
+
