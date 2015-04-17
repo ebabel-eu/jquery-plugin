@@ -19,3 +19,9 @@ $("p").test();
 
 See the [sample usage](src/index.html) in HTML.
 
+## todo:
+
+* Add configuration of options.
+* Add Grunt for src build and dist build..
+* Add ESLint.
+* Add HTML linting for the sample file.
