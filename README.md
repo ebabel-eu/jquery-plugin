@@ -85,5 +85,6 @@ grunt watch
 
 ## todo:
 
-* Use QUnit to write several unit tests for the plugin.
-* Add HTML linting for the sample file.
+* Add callbacks as options.
+* Use QUnit to write several unit tests for the plugin, including test coverage.
+* Add HTML linting for the sample file https://www.npmjs.com/package/grunt-html-validation
