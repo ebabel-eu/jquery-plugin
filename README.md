@@ -90,7 +90,6 @@ $("p").test({
 ```
 
 ## Build from source
-
 To build the source into a distribution package and run the unit tests just once, run:
 
 ```
@@ -98,15 +97,28 @@ grunt
 ```
 
 ## Develop from source
-
 To continuously build and run unit tests everytime javascript is modified, run:
 
 ```
 grunt watch
 ```
 
+## Unit testing with Grunt
+Unit tests can be run from the command line with either grunt:
+
+```
+grunt test
+```
+
+## Unit testing with npm
+The npm setting from package.json refers to the grunt test tasks and will run the tests:
+
+```
+npm test
+```
+
+
 ## todo:
 
-* Add callbacks as options.
 * Use QUnit to write several unit tests for the plugin, including test coverage.
 * Add HTML linting for the sample file https://www.npmjs.com/package/grunt-html-validation
