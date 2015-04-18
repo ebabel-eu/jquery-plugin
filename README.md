@@ -67,6 +67,28 @@ $("p").test({
 });
 ```
 
+### setup
+The setup callback is an optional function that will be called before running the plugin own code.
+
+$("p").test({
+    setup: function() { 
+        $(this).css("font-weight", "600"); 
+    }
+});
+
+### complete
+The complete callback is an optional function will be called after the rollover animation is completed.
+
+Example:
+
+```
+$("p").test({
+    complete: function() { 
+        $(this).slideUp(); 
+    }
+});
+```
+
 ## Build from source
 
 To build the source into a distribution package and run the unit tests just once, run:
