@@ -120,5 +120,5 @@ npm test
 
 ## todo:
 
-* Use QUnit to write several unit tests for the plugin, including test coverage.
+* Add test coverage to check QUnit.
 * Add HTML linting for the sample file https://www.npmjs.com/package/grunt-html-validation
