@@ -120,5 +120,5 @@ npm test
 
 ## todo:
 
-* Add test coverage to check QUnit.
+* Add test coverage to check QUnit. See https://github.com/asciidisco/grunt-qunit-istanbul
 * Add HTML linting for the sample file https://www.npmjs.com/package/grunt-html-validation
