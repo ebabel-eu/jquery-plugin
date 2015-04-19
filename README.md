@@ -90,7 +90,7 @@ $("p").highlight({
 ```
 
 ## Build from source
-To build the source into a distribution package and run the unit tests just once, run:
+To build the source into a distribution package, run unit tests just once and lint all files, run:
 
 ```
 grunt
@@ -120,10 +120,15 @@ npm test
 ## Test coverage with Istanbul
 The Istanbul test coverage report is generated when the tests are run. Consult it by browsing the index.html file under the coverage directory.
 
+## Linting
+To lint all code just once, including javascript, html and css, run:
+
+```
+grunt lint
+```
+
 ## todo:
 
-* In QUnit test configuration, don't accept globals.
-* Add HTML linting for the sample file https://www.npmjs.com/package/grunt-html-validation
 * Add ESLint.
 * Any need for Sass? If so, also add linting for Sass.
 * try to report test coverage in command line.

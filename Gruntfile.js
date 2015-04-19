@@ -59,6 +59,19 @@ module.exports = function(grunt) {
         src: ["src/**/*.js", "test/*.js"]
       }
     },
+    validation: {
+      options: {
+        reset: true,
+        reportpath: false,
+        stoponerror: true,
+        doctype: "HTML5"
+      },
+      files: {
+        src: [
+          "src/**/*.html"
+        ]
+      }
+    },
     karma: {
       test: {
         configFile: 'karma.conf.js'
@@ -81,7 +94,10 @@ module.exports = function(grunt) {
         tasks: ["jshint:gruntfile"]
       },
       src_test: {
-        files: "<%= jshint.src_test.src %>",
+        files: [
+          "src/**/*.js",
+          "test/*.js"
+        ],
         tasks: ["jshint:src_test", "karma"]
       }
     }
@@ -92,13 +108,28 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks("grunt-contrib-uglify");
   grunt.loadNpmTasks("grunt-contrib-copy");
   grunt.loadNpmTasks("grunt-contrib-jshint");
+  grunt.loadNpmTasks("grunt-html-validation");
   grunt.loadNpmTasks("grunt-karma");
   grunt.loadNpmTasks("grunt-contrib-watch");
 
-  // Default tasks: run everything.
-  grunt.registerTask("default", ["jshint", "karma", "concat", "uglify", "copy"]);
+  // Default tasks: build everything, ready for deployment.
+  grunt.registerTask("default", [
+    // Linting: jshint, validation
+    "jshint", 
+    "validation", 
+
+    // Unit testing: karma
+    "karma", 
+
+    // 3/3 building: concat, uglify, copy
+    "concat", 
+    "uglify", 
+    "copy"
+  ]);
 
   // Unit test and test coverage tasks only.
   grunt.registerTask("test", ["karma"]);
 
+  // Linting tasks
+  grunt.registerTask("lint", ["jshint", "validation"]);
 };
