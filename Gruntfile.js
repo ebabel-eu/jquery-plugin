@@ -59,6 +59,12 @@ module.exports = function(grunt) {
         src: ["src/**/*.js", "test/*.js"]
       }
     },
+    eslint: {
+      options: {
+          configFile: 'eslint.conf.json',
+      },
+      target: "<%= jshint.src_test.src %>"
+    },
     validation: {
       options: {
         reset: true,
@@ -98,7 +104,7 @@ module.exports = function(grunt) {
           "src/**/*.js",
           "test/*.js"
         ],
-        tasks: ["jshint:src_test", "karma"]
+        tasks: ["jshint:src_test", "eslint", "karma"]
       }
     }
   });
@@ -108,6 +114,7 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks("grunt-contrib-uglify");
   grunt.loadNpmTasks("grunt-contrib-copy");
   grunt.loadNpmTasks("grunt-contrib-jshint");
+  grunt.loadNpmTasks("grunt-eslint");
   grunt.loadNpmTasks("grunt-html-validation");
   grunt.loadNpmTasks("grunt-karma");
   grunt.loadNpmTasks("grunt-contrib-watch");
@@ -115,15 +122,16 @@ module.exports = function(grunt) {
   // Default tasks: build everything, ready for deployment.
   grunt.registerTask("default", [
     // Linting: jshint, validation
-    "jshint", 
-    "validation", 
+    "jshint",
+    "eslint",
+    "validation",
 
     // Unit testing: karma
-    "karma", 
+    "karma",
 
     // 3/3 building: concat, uglify, copy
-    "concat", 
-    "uglify", 
+    "concat",
+    "uglify",
     "copy"
   ]);
 
@@ -131,5 +139,5 @@ module.exports = function(grunt) {
   grunt.registerTask("test", ["karma"]);
 
   // Linting tasks
-  grunt.registerTask("lint", ["jshint", "validation"]);
+  grunt.registerTask("lint", ["jshint", "eslint", "validation"]);
 };

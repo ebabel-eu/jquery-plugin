@@ -1,5 +1,7 @@
 // Synchronous callback text.
 (function ($, QUnit) {
+    "use strict";
+
     QUnit.test("use setup callback to turn the text bold", function (assert) {
         var body = $("body"),
             lorem = "<div id=\"lorem\">lorem ipsum</div>";

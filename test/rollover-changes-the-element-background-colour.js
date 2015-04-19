@@ -1,5 +1,7 @@
 // Asynchronous test.
 (function ($, QUnit) {
+    "use strict";
+
     QUnit.test("rollover changes the element background colour", function (assert) {
         var done = assert.async(),
             body = $("body"),

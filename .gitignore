@@ -1,7 +1,7 @@
 # Distribution package, built with Grunt
 dist
 
-# Linting reports
+# Linting
 validation-status.json
 
 # Test coverage reports

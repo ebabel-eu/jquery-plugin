@@ -1,5 +1,7 @@
 // Equality test.
 (function ($, QUnit) {
+    "use strict";
+
     QUnit.test("change the background colour to red", function (assert) {
         var body = $("body"),
             lorem = "<div id=\"lorem\">lorem ipsum</div>";
@@ -8,7 +10,7 @@
         $("#lorem").highlight({
             colour: "#f00"
         });
-        
+
         assert.deepEqual($("#lorem").css("background-color"), "rgb(255, 0, 0)");
         $("#lorem").remove();
     });

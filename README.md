@@ -129,6 +129,4 @@ grunt lint
 
 ## todo:
 
-* Add ESLint.
 * Any need for Sass? If so, also add linting for Sass.
-* try to report test coverage in command line.
