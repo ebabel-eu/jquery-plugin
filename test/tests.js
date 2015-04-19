@@ -2,14 +2,8 @@
 
 (function ($, QUnit) {
 
-    QUnit.module( "Plugin applied to a div", {
-        beforeEach: function () {
-            $("body").append("<div id=\"lorem\">lorem ipsum</div>");
-        },
-        afterEach: function () {
-            $("#lorem").remove();
-        }
-    });
+    var fixture = $( "#qunit-fixture" ),    // Fixture is a special QUnit container that gets cleaned up after each test to keep them atomic.
+        lorem = "<div id=\"lorem\">lorem ipsum</div>";
 
     // Test if something is defined.
     QUnit.test("plugin exists", function (assert) {
@@ -23,6 +17,7 @@
 
     // Equality test
     QUnit.test("change the background colour to red", function (assert) {
+        fixture.append(lorem);
         $("#lorem").test({
             colour: "#f00"
         });
@@ -32,6 +27,8 @@
     // Asynchronous test
     QUnit.test("rollover changes the element background colour", function (assert) {
         var done = assert.async();
+
+        fixture.append(lorem);
 
         $("#lorem").test({
             colour: "#ff0",
