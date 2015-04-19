@@ -2,9 +2,9 @@
 (function ($) {
     "use strict";
 
-    $.fn.test = function (options) {
+    $.fn.highlight = function (options) {
         // Allow options and use defaults wherever an option isn't specified.
-        options = $.extend($.fn.test.defaults, options);
+        options = $.extend($.fn.highlight.defaults, options);
 
         // Plugin code
         return this.each(function () {
@@ -31,7 +31,7 @@
         });
     };
 
-    $.fn.test.defaults = {
+    $.fn.highlight.defaults = {
         colour: "#fff47f",
         duration: "fast",
         setup: null,

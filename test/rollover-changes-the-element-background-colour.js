@@ -7,7 +7,7 @@
 
         body.append(lorem);
 
-        $("#lorem").test({
+        $("#lorem").highlight({
             colour: "#ff0",
             duration: 1
         });

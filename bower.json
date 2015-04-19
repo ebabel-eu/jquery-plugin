@@ -6,7 +6,7 @@
     "Nadjib Amar <hello@ebabel.eu>"
   ],
   "description": "Sample jQuery plugin to test how to write one with typical features.",
-  "main": "jquery.test.js",
+  "main": "jquery.highlight.js",
   "moduleType": [
     "globals"
   ],

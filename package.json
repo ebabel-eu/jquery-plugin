@@ -2,7 +2,7 @@
   "name": "jquery-plugin",
   "version": "1.0.0",
   "description": "Sample jQuery plugin to test how to write one with typical features.",
-  "main": "src/jquery.test.js",
+  "main": "src/jquery.highlight.js",
   "scripts": {
     "test": "grunt test"
   },

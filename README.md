@@ -1,7 +1,7 @@
-# jQuery test plugin
+# jQuery highlight plugin
 Sample jQuery plugin to test how to write one with typical features.
 
-## Install jQuery test plugin
+## Install jQuery highlight plugin
 The bower command will install both the plugin and its dependencies.
 
 ```
@@ -17,16 +17,16 @@ npm install
 grunt
 ```
 
-## Use jQuery test plugin
+## Use jQuery highlight plugin
 
 ```
-$("selector").test();
+$("selector").highlight();
 ```
 
 Example:
 
 ```
-$("p").test();
+$("p").highlight();
 ```
 
 See the [sample usage](src/index.html) in HTML.
@@ -39,7 +39,7 @@ It's possible to set one or several options at once.
 Example:
 
 ```
-$("p").test({
+$("p").highlight({
     colour: "#ff69b4",
     duration: "slow"
 });
@@ -51,7 +51,7 @@ The colour option sets the colour of the highlighting and can be any valid CSS c
 Example:
 
 ```
-$("p").test({
+$("p").highlight({
     colour: "#ff69b4"
 });
 ```
@@ -62,7 +62,7 @@ The duration sets how fast the animation from highlighted colour to original col
 Example:
 
 ```
-$("p").test({
+$("p").highlight({
     duration: "slow"
 });
 ```
@@ -70,7 +70,7 @@ $("p").test({
 ### setup
 The setup callback is an optional function that will be called before running the plugin own code.
 
-$("p").test({
+$("p").highlight({
     setup: function() { 
         $(this).css("font-weight", "600"); 
     }
@@ -82,7 +82,7 @@ The complete callback is an optional function will be called after the rollover 
 Example:
 
 ```
-$("p").test({
+$("p").highlight({
     complete: function() { 
         $(this).slideUp(); 
     }
@@ -122,7 +122,6 @@ The Istanbul test coverage report is generated when the tests are run. Consult i
 
 ## todo:
 
-* Rename the plugin as "highlight" instead of "test".
 * In QUnit test configuration, don't accept globals.
 * Add HTML linting for the sample file https://www.npmjs.com/package/grunt-html-validation
 * Add ESLint.

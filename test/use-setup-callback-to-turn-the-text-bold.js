@@ -5,7 +5,7 @@
             lorem = "<div id=\"lorem\">lorem ipsum</div>";
 
         body.append(lorem);
-        $("#lorem").test({
+        $("#lorem").highlight({
             setup: function () {
                 $(this).css("font-weight", "600");
             }

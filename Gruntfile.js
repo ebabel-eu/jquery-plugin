@@ -6,7 +6,7 @@ module.exports = function(grunt) {
     meta: {
       version: "1.0.0"
     },
-    banner: "/*! jQuery test plugin - v<%= meta.version %> - " +
+    banner: "/*! jQuery highlight plugin - v<%= meta.version %> - " +
       "<%= grunt.template.today(\"yyyy-mm-dd\") %>\n" +
       "* http://efocus.nl/\n" +
       "* Copyright (c) <%= grunt.template.today(\"yyyy\") %> " +
@@ -19,8 +19,8 @@ module.exports = function(grunt) {
         stripBanners: true
       },
       dist: {
-        src: ["src/jquery.test.js"],
-        dest: "dist/jquery.test.js"
+        src: ["src/jquery.highlight.js"],
+        dest: "dist/jquery.highlight.js"
       }
     },
     uglify: {
@@ -30,7 +30,7 @@ module.exports = function(grunt) {
       },
       dist: {
         src: "<%= concat.dist.dest %>",
-        dest: "dist/jquery.test.min.js"
+        dest: "dist/jquery.highlight.min.js"
       }
     },
     jshint: {
@@ -70,7 +70,7 @@ module.exports = function(grunt) {
         dest: "dist/index.html",
         options: {
           process: function (content) {
-            return content.replace("jquery.test.js", "jquery.test.min.js");
+            return content.replace("jquery.highlight.js", "jquery.highlight.min.js");
           },
         },
       },

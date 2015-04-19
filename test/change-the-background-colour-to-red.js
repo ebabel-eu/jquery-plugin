@@ -5,7 +5,7 @@
             lorem = "<div id=\"lorem\">lorem ipsum</div>";
 
         body.append(lorem);
-        $("#lorem").test({
+        $("#lorem").highlight({
             colour: "#f00"
         });
         assert.equal($("#lorem").css("background-color"), "rgb(255, 0, 0)");
