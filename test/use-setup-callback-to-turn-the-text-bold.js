@@ -10,7 +10,8 @@
                 $(this).css("font-weight", "600");
             }
         });
-        assert.equal($("#lorem").css("font-weight"), "600");
+
+        assert.deepEqual($("#lorem").css("font-weight"), "600");
         $("#lorem").remove();
     });
 }(window.jQuery, window.QUnit));

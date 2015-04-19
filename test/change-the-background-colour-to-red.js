@@ -8,7 +8,8 @@
         $("#lorem").highlight({
             colour: "#f00"
         });
-        assert.equal($("#lorem").css("background-color"), "rgb(255, 0, 0)");
+        
+        assert.deepEqual($("#lorem").css("background-color"), "rgb(255, 0, 0)");
         $("#lorem").remove();
     });
 }(window.jQuery, window.QUnit));
