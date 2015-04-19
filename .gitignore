@@ -1,6 +1,9 @@
 # Distribution package, built with Grunt
 dist
 
+# Test coverage reports
+coverage
+
 # Dependencies
 bower_components
 node_modules

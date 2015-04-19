@@ -1,7 +1,6 @@
 /*global module:false*/
 module.exports = function(grunt) {
 
-  // Project configuration.
   grunt.initConfig({
     // Metadata.
     meta: {
@@ -12,6 +11,7 @@ module.exports = function(grunt) {
       "* http://efocus.nl/\n" +
       "* Copyright (c) <%= grunt.template.today(\"yyyy\") %> " +
       "Nadjib Amar; Licensed MIT */\n",
+
     // Task configuration.
     concat: {
       options: {
@@ -56,16 +56,18 @@ module.exports = function(grunt) {
         src: "Gruntfile.js"
       },
       src_test: {
-        src: ["src/**/*.js", "test/**/*.js"]
+        src: ["src/**/*.js", "test/*.js"]
       }
     },
-    qunit: {
-      files: ["test/**/*.html"]
+    karma: {
+      test: {
+        configFile: 'karma.conf.js'
+      }
     },
     copy: {
       main: {
-        src: 'src/index.html',
-        dest: 'dist/index.html',
+        src: "src/index.html",
+        dest: "dist/index.html",
         options: {
           process: function (content) {
             return content.replace("jquery.test.js", "jquery.test.min.js");
@@ -80,7 +82,7 @@ module.exports = function(grunt) {
       },
       src_test: {
         files: "<%= jshint.src_test.src %>",
-        tasks: ["jshint:src_test", "qunit"]
+        tasks: ["jshint:src_test", "karma"]
       }
     }
   });
@@ -89,14 +91,14 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks("grunt-contrib-concat");
   grunt.loadNpmTasks("grunt-contrib-uglify");
   grunt.loadNpmTasks("grunt-contrib-copy");
-  grunt.loadNpmTasks("grunt-contrib-qunit");
   grunt.loadNpmTasks("grunt-contrib-jshint");
+  grunt.loadNpmTasks("grunt-karma");
   grunt.loadNpmTasks("grunt-contrib-watch");
 
-  // Default task.
-  grunt.registerTask("default", ["jshint", "qunit", "concat", "uglify", "copy"]);
+  // Default tasks: run everything.
+  grunt.registerTask("default", ["jshint", "karma", "concat", "uglify", "copy"]);
 
-  // Unit test tasks only.
-  grunt.registerTask("test", ["qunit"]);
+  // Unit test and test coverage tasks only.
+  grunt.registerTask("test", ["karma"]);
 
 };

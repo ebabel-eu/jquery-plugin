@@ -117,8 +117,13 @@ The npm setting from package.json refers to the grunt test tasks and will run th
 npm test
 ```
 
+## Test coverage with Istanbul
+The Istanbul test coverage report is generated when the tests are run. Consult it by browsing the index.html file under the coverage directory.
 
 ## todo:
 
-* Add test coverage to check QUnit. See https://github.com/asciidisco/grunt-qunit-istanbul
+* Rename the plugin as "highlight" instead of "test".
+* In QUnit test configuration, don't accept globals.
 * Add HTML linting for the sample file https://www.npmjs.com/package/grunt-html-validation
+* Add ESLint.
+* Any need for Sass? If so, also add linting for Sass.
