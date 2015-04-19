@@ -127,3 +127,4 @@ The Istanbul test coverage report is generated when the tests are run. Consult i
 * Add HTML linting for the sample file https://www.npmjs.com/package/grunt-html-validation
 * Add ESLint.
 * Any need for Sass? If so, also add linting for Sass.
+* try to report test coverage in command line.
