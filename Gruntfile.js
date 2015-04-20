@@ -21,6 +21,11 @@ module.exports = function (grunt) {
       },
       target: ["src/**/*.js", "test/*.js"]
     },
+    scsslint: {
+      all: [
+        "src/css/sass/**/*.scss",
+      ]
+    },
     validation: {
       options: {
         reset: true,
@@ -109,15 +114,16 @@ module.exports = function (grunt) {
           "src/css/sass/**/*.scss",
           "Gruntfile.js"
         ],
-        tasks: ["eslint", "karma", "sass:css_src"]
+        tasks: ["eslint", "scsslint", "karma", "sass:css_src"]
       }
     }
   });
 
   // Default tasks: build everything, ready for deployment.
   grunt.registerTask("default", [
-    // Linting: eslint, validation
+    // Linting: eslint, scsslint, validation
     "eslint",
+    "scsslint",
     "validation",
 
     // Unit testing: karma
@@ -135,7 +141,7 @@ module.exports = function (grunt) {
   grunt.registerTask("test", ["karma"]);
 
   // Linting tasks.
-  grunt.registerTask("lint", ["eslint", "validation"]);
+  grunt.registerTask("lint", ["eslint", "scsslint", "validation"]);
 
   // Build without any linting or unit testing.
   grunt.registerTask("build", [

@@ -127,6 +127,9 @@ To lint all code just once, including javascript, html and css, run:
 grunt lint
 ```
 
-## todo:
+## Build
+Only build without any unit testing or linting.
 
-* Add linting for sass/grunt.
+```
+grunt build
+```
