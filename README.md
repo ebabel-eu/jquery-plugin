@@ -70,11 +70,13 @@ $("pre").highlight({
 ### setup
 The setup callback is an optional function that will be called before running the plugin own code.
 
+```
 $("pre").highlight({
     setup: function() { 
         $(this).css("font-weight", "600"); 
     }
 });
+```
 
 ### complete
 The complete callback is an optional function will be called after the rollover animation is completed.
