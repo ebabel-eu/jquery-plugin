@@ -26,7 +26,7 @@ $("selector").highlight();
 Example:
 
 ```
-$("p").highlight();
+$("pre").highlight();
 ```
 
 See the [sample usage](src/index.html) in HTML.
@@ -39,7 +39,7 @@ It's possible to set one or several options at once.
 Example:
 
 ```
-$("p").highlight({
+$("pre").highlight({
     colour: "#ff69b4",
     duration: "slow"
 });
@@ -51,7 +51,7 @@ The colour option sets the colour of the highlighting and can be any valid CSS c
 Example:
 
 ```
-$("p").highlight({
+$("pre").highlight({
     colour: "#ff69b4"
 });
 ```
@@ -62,7 +62,7 @@ The duration sets how fast the animation from highlighted colour to original col
 Example:
 
 ```
-$("p").highlight({
+$("pre").highlight({
     duration: "slow"
 });
 ```
@@ -70,7 +70,7 @@ $("p").highlight({
 ### setup
 The setup callback is an optional function that will be called before running the plugin own code.
 
-$("p").highlight({
+$("pre").highlight({
     setup: function() { 
         $(this).css("font-weight", "600"); 
     }
@@ -82,7 +82,7 @@ The complete callback is an optional function will be called after the rollover 
 Example:
 
 ```
-$("p").highlight({
+$("pre").highlight({
     complete: function() { 
         $(this).slideUp(); 
     }
