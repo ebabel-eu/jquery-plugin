@@ -1,6 +1,11 @@
 # Distribution package, built with Grunt
 dist
 
+# Sass and generated css
+.sass-cache
+*.css
+*.css.map
+
 # Linting
 validation-status.json
 

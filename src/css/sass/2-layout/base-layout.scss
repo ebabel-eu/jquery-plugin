@@ -1,0 +1,19 @@
+h1 {
+    font-size: 2em;
+    color: $main;
+
+    &.logo {
+        background-image: url(../images/jquery-logo.png);
+        background-repeat: no-repeat;
+        background-size: 4em;
+        padding-right: 5em;
+        background-position: right top;
+    }
+}
+
+@media (max-width: $screen-xs-max) {
+    h1.logo {
+        background-position: left center;
+        padding: 0 0 0 4.5em;
+    }
+}

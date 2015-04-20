@@ -15,26 +15,6 @@ module.exports = function (grunt) {
       "Nadjib Amar; Licensed MIT */\n",
 
     // Task configuration.
-    concat: {
-      options: {
-        banner: "<%= banner %>",
-        stripBanners: true
-      },
-      dist: {
-        src: ["src/jquery.highlight.js"],
-        dest: "dist/jquery.highlight.js"
-      }
-    },
-    uglify: {
-      options: {
-        banner: "<%= banner %>",
-        sourceMap: true
-      },
-      dist: {
-        src: "<%= concat.dist.dest %>",
-        dest: "dist/jquery.highlight.min.js"
-      }
-    },
     eslint: {
       options: {
           configFile: 'eslint.conf.json',
@@ -59,25 +39,77 @@ module.exports = function (grunt) {
         configFile: 'karma.conf.js'
       }
     },
+    concat: {
+      options: {
+        banner: "<%= banner %>",
+        stripBanners: true
+      },
+      dist: {
+        src: ["src/jquery.highlight.js"],
+        dest: "dist/jquery.highlight.js"
+      }
+    },
+    uglify: {
+      options: {
+        banner: "<%= banner %>",
+        sourceMap: true
+      },
+      dist: {
+        src: "<%= concat.dist.dest %>",
+        dest: "dist/jquery.highlight.min.js"
+      }
+    },
+    sass: {
+      css_src: {
+        options: {
+          sourcemap: "none"
+        },
+        files: {
+          "src/css/screen.css": "src/css/sass/screen.scss"
+        }
+      },
+      css_dist: {
+        options: {
+          style: "compressed",
+          sourcemap: "inline"
+        },
+        files: {
+          "dist/css/screen.min.css": "src/css/screen.css"
+        }
+      }
+    },
     copy: {
       main: {
         src: "src/index.html",
         dest: "dist/index.html",
         options: {
           process: function (content) {
-            return content.replace("jquery.highlight.js", "jquery.highlight.min.js");
+            return content
+              .replace("jquery.highlight.js", "jquery.highlight.min.js")
+              .replace("screen.css", "screen.min.css");
           },
         },
       },
+      images: {
+        files: [
+          { 
+            expand: true,
+            cwd: 'src/images/', 
+            src: ['**/*.{png,jpg,svg}'], 
+            dest:'dist/images/' 
+          }
+        ]
+      }
     },
     watch: {
       src_test: {
         files: [
           "src/**/*.js",
           "test/*.js",
+          "src/css/sass/**/*.scss",
           "Gruntfile.js"
         ],
-        tasks: ["eslint", "karma"]
+        tasks: ["eslint", "karma", "sass:css_src"]
       }
     }
   });
@@ -94,12 +126,23 @@ module.exports = function (grunt) {
     // 3/3 building: concat, uglify, copy
     "concat",
     "uglify",
+    "sass:css_src",
+    "sass:css_dist",
     "copy"
   ]);
 
   // Unit test and test coverage tasks only.
   grunt.registerTask("test", ["karma"]);
 
-  // Linting tasks
+  // Linting tasks.
   grunt.registerTask("lint", ["eslint", "validation"]);
+
+  // Build without any linting or unit testing.
+  grunt.registerTask("build", [
+    "concat", 
+    "uglify", 
+    "sass:css_src", 
+    "sass:css_dist", 
+    "copy"
+  ]);
 };

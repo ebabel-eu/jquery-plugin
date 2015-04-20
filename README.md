@@ -129,4 +129,4 @@ grunt lint
 
 ## todo:
 
-* Any need for Sass? If so, also add linting for Sass.
+* Add linting for sass/grunt.
